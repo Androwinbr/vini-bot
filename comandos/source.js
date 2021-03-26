@@ -1,5 +1,5 @@
 const Discord = require("discord.js")
-const github = "https://github.com/Androwinbr/"
+const github = "https://github.com/Androwinbr/vini-bot"
 exports.run = (bot,message, args) => {
     const embed = new Discord.MessageEmbed()
         .setTitle("Github")

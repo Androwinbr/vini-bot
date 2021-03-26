@@ -1,0 +1,14 @@
+{
+  "name": "linux",
+  "version": "1.0.0",
+  "description": "Um bot pra ajudar",
+  "main": "bot.js",
+  "scripts": {
+    "test": "node  bot.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.1"
+  }
+}

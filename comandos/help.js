@@ -1,34 +1,44 @@
 const Discord = require("discord.js")
+const paginate = require("discord.js-pagination")
 const config = require("../config.json")
 let prefix = config.prefix
 
 
 exports.run = (bot,message, args) => {
-        const embed = new Discord.MessageEmbed()
-        .setTitle("Tela de ajuda")
-        .setAuthor("Linux Bot")
-        .setDescription(`Os meus comandos disponiveis são: \ 
-            \n\n**${prefix}context**: \ 
-            \nmostra o out of context dos membros do servidor **World of Linux**. \ 
-            \n\n**${prefix}invite**:\
-            \nEnvia meu link de convite\
-            \n\n**${prefix}kick**:\
+        const moderacao = new Discord.MessageEmbed()
+        .setTitle("Moderação")
+        .setDescription(`**${prefix}kick**:\
             \nComando pra expulsar alguem do servidor\
-            \n\n**${prefix}delete**:\
-            \nComando pra apagar mensagens do chat
-            \n\n**${prefix}help**: \ 
-            \nMostra essa tela de ajuda.\
-            \n\n**${prefix}ban**:\
+            \n**${prefix}delete**:\
+            \nComando pra apagar mensagens do chat\
+            \n**${prefix}ban**:\
             \nComando para banir algum usuario!!\
-            \n\n**${prefix}unban**:\
-            \nComando pra desbanir alguem
-            \n\n**${prefix}ping:**\
-            \nMostra o ping do Bot\
-            \n\n**${prefix}source**:\
-            \nMostra o link do código fonte do Bot`)
+            \n**${prefix}unban**:\
+            \nComando pra desbanir alguem`)
             .setColor("RANDOM")
-            .setThumbnail(bot.user.displayAvatarURL({dynamic: true, size: 2048}))
-        message.reply(embed)
+        const diversao = new Discord.MessageEmbed()
+            .setTitle("Diversão")
+            .setDescription(`**${prefix}sabio**:\
+            \nResponde a suas perguntas!`)
+        const bot_com = new Discord.MessageEmbed()
+            .setTitle("comandos relacionados ao bot")
+            .setDescription(`**${prefix}source:**\
+            \nMostra o código fonte do Bot!\
+            \n**${prefix}invite**:\
+            \nEnvia o link de convite do bot pra adicionar a outros servidores\
+            \n**${prefix}ping**:\
+            \nMostra o ping do bot\
+            \n**${prefix}help**:\
+            \nMostra essa tela de ajuda`)
+        const other = new Discord.MessageEmbed()
+            .setTitle("Outros comandos")
+            .setDescription(`**${prefix}sugerir:**\
+            \nManda uma sugestão e reage com os emojis "✅", "❌"; para marcação de aprovação ou negação!`)
+        
+        pages = [
+            moderacao, diversao, bot_com, other
+        ]
+        paginate(message, pages)
 }
 
 exports.help = {

@@ -1,14 +1,16 @@
 {
-  "name": "linux",
+  "name": "vinibot",
   "version": "1.0.0",
-  "description": "Um bot pra ajudar",
   "main": "bot.js",
-  "scripts": {
-    "test": "node  bot.js"
-  },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "discord.js": "^12.5.1"
-  }
+    "discord.js": "^12.5.1",
+    "discord.js-pagination": "^1.0.3"
+  },
+  "scripts": {
+    "test": "node bot.js"
+  },
+  "author": "androwinbr",
+  "license": "ISC",
+  "devDependencies": {},
+  "description": ""
 }

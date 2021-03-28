@@ -1,7 +1,7 @@
 const Discord = require("discord.js")
 
-exports.run = (bot, message, args) => {
-    if (!message.member.hasPermission("BAN_MEMBERS")) return message.reply(" 😒 Você não pode banir alguem sem a permissão `Banir Membros`!! 😒 ")
+exports.run = async (bot, message, args) => {
+    if (!message.member.hasPermission("BAN_MEMBERS", "ADMINISTRATOR")) return message.reply(" 😒 Você não pode banir alguem sem a permissão `Banir Membros`!! 😒 ")
     let infrator = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
     let motivo = args.slice(1).join(" ")
     if (!args) return message.reply(" 🙄 Hmmm, eu ainda não sei ler mentes, você deve me informar quem você quer banir!!!")
@@ -15,15 +15,14 @@ exports.run = (bot, message, args) => {
       \n**Banido pelo usuario:** ${message.author.tag} \
       \n**Motivo:** ${motivo}`)
           .setColor("#ed2c09")
-        infrator.send(embed)
-        message.channel.send(`Usuario ${infrator} banido com sucesso, quem mandou desobedecer as leis!!`)
-        message.channel.send(embed)
         infrator.ban({
             reason: `Banido por ${message.author.tag} - Motivo: ${motivo}`
-      })
+        })
+        message.channel.send(`Usuario ${infrator} banido com sucesso, quem mandou desobedecer as leis!!`)
+        message.channel.send(embed)
     }else {
-      message.reply("Eu não tenho permissão para banir este usuário, me dê permissão de banir e/ou suba meu cargo.")
-    }
+        message.reply(" \\❌ | Eu não tenho permissão para banir este usuário, me dê permissão de banir e/ou suba meu cargo.")
+      }
 }
 
 exports.help = {

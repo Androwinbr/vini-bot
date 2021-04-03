@@ -19,7 +19,11 @@ exports.run = (bot,message, args) => {
         const diversao = new Discord.MessageEmbed()
             .setTitle("Diversão")
             .setDescription(`**${prefix}sabio**:\
-            \nResponde a suas perguntas!`)
+            \nResponde a suas perguntas!\
+            \n**${prefix}Dados**:\
+            \nVamos ver quem tira o numero maior?\
+            \n**${prefix}Hackear**:\
+            \nHora de se tornar hacker!!`)
         const bot_com = new Discord.MessageEmbed()
             .setTitle("comandos relacionados ao bot")
             .setDescription(`**${prefix}source:**\
@@ -32,7 +36,7 @@ exports.run = (bot,message, args) => {
             \nMostra essa tela de ajuda`)
         const other = new Discord.MessageEmbed()
             .setTitle("Outros comandos")
-            .setDescription(`**${prefix}sugerir:**\
+            .setDescription(`**${prefix}vote:**\
             \nManda uma sugestão e reage com os emojis "✅", "❌"; para marcação de aprovação ou negação!`)
         
         pages = [
